@@ -1,0 +1,250 @@
+"use client";
+
+import { useState } from "react";
+import {
+  MapPin,
+  Phone,
+  Mail,
+  Clock,
+  Send,
+  CheckCircle,
+  AlertCircle,
+  Building2,
+  Loader2Icon,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { sendContactEmail } from "@/action/contact";
+import PageWrapper from "./PageWrapper";
+
+const contact_info = [
+  {
+    title: "Office Address",
+    icon: MapPin,
+    description: "123 Legal Street, Suite 100, City, State 12345",
+  },
+  {
+    title: "Phone Number",
+    icon: Phone,
+    description: "(555) 123-4567",
+    msg: "Available 24/7 for emergencies",
+  },
+  {
+    title: "Email Address",
+    icon: Mail,
+    description: "contact@lawfirm.com",
+    msg: "We respond within 24 hours",
+  },
+  {
+    title: "Office Hours",
+    icon: Clock,
+    description: "Monday - Friday: 9:00 AM - 6:00 PM",
+    msg: "Sunday: Closed",
+  },
+];
+
+export default function ContactUs() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [message, setMessage] = useState({ type: "", text: "" });
+
+  const handleSubmit = async (formData) => {
+    setIsSubmitting(true);
+    setMessage({ type: "", text: "" });
+
+    try {
+      const result = await sendContactEmail(formData);
+
+      if (result.success) {
+        setMessage({ type: "success", text: result.success });
+        // Reset form
+        document.getElementById("contact-form").reset();
+      } else {
+        setMessage({ type: "error", text: result.error });
+      }
+    } catch (error) {
+      setMessage({
+        type: "error",
+        text: "Something went wrong. Please try again.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  return (
+    <section className="py-16 ">
+      <PageWrapper className="container mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
+        <div className="text-center mb-16">
+          <h2 className="text-md font-semibold text-primary mb-4">
+            Get In Touch
+          </h2>
+          <p className="text-lg max-w-2xl mx-auto">
+            Ready to discuss your legal needs? Contact us today for a
+            consultation.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+          {/* Left Side - Contact Information */}
+          <div className="space-y-8">
+            <div className="text-center lg:text-left">
+              <h3 className="text-3xl font-bold text-foreground mb-4">
+                Contact Information
+              </h3>
+              <p className="text-muted-foreground text-lg leading-relaxed">
+                We're here to help with all your legal needs. Reach out to us
+                through any of the following channels.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-4">
+              {contact_info.map((item, index) => (
+                <div
+                  key={index}
+                  className="flex shadow-sm flex-col gap-2 bg-background/90 border border-border rounded-lg p-4 hover:bg-background"
+                >
+                  <div className="flex items-center gap-2">
+                    {item?.icon && <item.icon className="h-5 w-5" />}
+                    <h3 className="text-lg font-semibold">{item.title}</h3>
+                  </div>
+
+                  <p className="text-muted-foreground text-md ">
+                    {item.description}
+                  </p>
+                  <p className="text-muted-foreground text-sm leading-relaxed">
+                    {item?.msg}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Right Side - Contact Form */}
+          <div>
+            <Card className="bg-background shadow-none border-none">
+              <CardHeader className="">
+                <CardTitle className="">Send us a Message</CardTitle>
+                <CardDescription className="">
+                  Fill out the form below and we'll get back to you as soon as
+                  possible.
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="p-8 pt-0">
+                <form
+                  id="contact-form"
+                  action={handleSubmit}
+                  className="space-y-6"
+                >
+                  {/* Message Display */}
+                  {message.text && (
+                    <div
+                      className={`p-4 rounded-xl flex items-center space-x-3 ${
+                        message.type === "success"
+                          ? "bg-green-50 text-green-800 border border-green-200"
+                          : "bg-red-50 text-red-800 border border-red-200"
+                      }`}
+                    >
+                      {message.type === "success" ? (
+                        <CheckCircle className="h-5 w-5" />
+                      ) : (
+                        <AlertCircle className="h-5 w-5" />
+                      )}
+                      <span className="text-sm font-medium">
+                        {message.text}
+                      </span>
+                    </div>
+                  )}
+
+                  {/* Full Name */}
+                  <div className="space-y-2">
+                    <Label htmlFor="fullName" className="text-sm font-semibold">
+                      Full Name *
+                    </Label>
+                    <Input
+                      id="fullName"
+                      name="fullName"
+                      type="text"
+                      placeholder="Enter your full name"
+                      required
+                      className="w-full  text-base "
+                    />
+                  </div>
+
+                  {/* Email */}
+                  <div className="space-y-2">
+                    <Label htmlFor="email" className="text-sm font-semibold">
+                      Email Address *
+                    </Label>
+                    <Input
+                      id="email"
+                      name="email"
+                      type="email"
+                      placeholder="Enter your email address"
+                      required
+                      className="w-full text-base "
+                    />
+                  </div>
+
+                  {/* Phone */}
+                  <div className="space-y-2">
+                    <Label htmlFor="phone" className="text-sm font-semibold">
+                      Phone Number
+                    </Label>
+                    <Input
+                      id="phone"
+                      name="phone"
+                      type="tel"
+                      placeholder="Enter your phone number (optional)"
+                      className="w-full text-base"
+                    />
+                  </div>
+
+                  {/* Message */}
+                  <div className="space-y-2">
+                    <Label htmlFor="message" className="text-sm font-semibold">
+                      Message *
+                    </Label>
+                    <Textarea
+                      id="message"
+                      name="message"
+                      placeholder="Tell us about your legal needs..."
+                      required
+                    />
+                  </div>
+
+                  {/* Submit Button */}
+                  <Button
+                    size="lg"
+                    disabled={isSubmitting}
+                    className={"w-full"}
+                  >
+                    {isSubmitting ? (
+                      <>
+                        <Loader2Icon className="animate-spin" />
+                        <span>Sending...</span>
+                      </>
+                    ) : (
+                      <>
+                        <Send className="h-5 w-5 mr-2" />
+                        <span>Send Message</span>
+                      </>
+                    )}
+                  </Button>
+                </form>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </PageWrapper>
+    </section>
+  );
+}
