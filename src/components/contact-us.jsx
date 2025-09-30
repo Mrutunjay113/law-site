@@ -81,14 +81,24 @@ export default function ContactUs() {
   };
 
   return (
-    <section className="py-16 ">
-      <PageWrapper className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section
+      className="py-16 relative "
+      style={{
+        backgroundImage: "url('/images/contact-us-bg.jpg')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
+      {" "}
+      <div className="absolute inset-0 bg-black/80 "></div>
+      <PageWrapper className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-md font-semibold text-primary mb-4">
             Get In Touch
           </h2>
-          <p className="text-lg max-w-2xl mx-auto">
+          <p className="text-lg max-w-2xl mx-auto text-white/70">
             Ready to discuss your legal needs? Contact us today for a
             consultation.
           </p>
@@ -98,31 +108,30 @@ export default function ContactUs() {
           {/* Left Side - Contact Information */}
           <div className="space-y-8">
             <div className="text-center lg:text-left">
-              <h3 className="text-3xl font-bold text-foreground mb-4">
+              <h3 className="text-3xl font-bold text-white mb-4">
                 Contact Information
               </h3>
-              <p className="text-muted-foreground text-lg leading-relaxed">
+              <p className="text-white/70 text-lg leading-relaxed">
                 We're here to help with all your legal needs. Reach out to us
                 through any of the following channels.
               </p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-4">
+            <div className="grid grid-cols-1 md:grid-cols-2  gap-8  ">
               {contact_info.map((item, index) => (
                 <div
                   key={index}
-                  className="flex shadow-sm flex-col gap-2 bg-background/90 border border-border rounded-lg p-4 hover:bg-background"
+                  className="grid grid-cols-1  shadow-sm  gap-4 border border-white/20 rounded-lg p-4 bg-black/40 backdrop-blur-xl"
                 >
-                  <div className="flex items-center gap-2">
-                    {item?.icon && <item.icon className="h-5 w-5" />}
-                    <h3 className="text-lg font-semibold">{item.title}</h3>
+                  <div className=" grid grid-cols-1  items-center gap-4">
+                    {item?.icon && <item.icon className="h-5 w-5 text-white" />}
+                    <h3 className="text-lg font-semibold text-white">
+                      {item.title}
+                    </h3>{" "}
+                    <p className="text-white/70 text-md ">{item.description}</p>
+                    <p className="text-white/70 text-sm leading-relaxed">
+                      {item?.msg}
+                    </p>
                   </div>
-
-                  <p className="text-muted-foreground text-md ">
-                    {item.description}
-                  </p>
-                  <p className="text-muted-foreground text-sm leading-relaxed">
-                    {item?.msg}
-                  </p>
                 </div>
               ))}
             </div>
@@ -130,7 +139,7 @@ export default function ContactUs() {
 
           {/* Right Side - Contact Form */}
           <div>
-            <Card className="bg-background shadow-none border-none">
+            <Card className="bg-background/40 backdrop-blur-xl shadow-none border">
               <CardHeader className="">
                 <CardTitle className="">Send us a Message</CardTitle>
                 <CardDescription className="">
@@ -138,7 +147,7 @@ export default function ContactUs() {
                   possible.
                 </CardDescription>
               </CardHeader>
-              <CardContent className="p-8 pt-0">
+              <CardContent className="md:p-8 pt-0">
                 <form
                   id="contact-form"
                   action={handleSubmit}

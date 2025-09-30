@@ -66,9 +66,45 @@ export default function Navbar() {
   const [isPracticeAreasOpen, setIsPracticeAreasOpen] = React.useState(false);
   const [isMobilePracticeAreasOpen, setIsMobilePracticeAreasOpen] =
     React.useState(false);
+  const [isVisible, setIsVisible] = React.useState(true);
+  const [lastScrollY, setLastScrollY] = React.useState(0);
+  const [scrollbg, setScrollbg] = React.useState(false);
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY < 10) {
+        // Always show navbar at the top
+        setIsVisible(true);
+        setScrollbg(false);
+      } else if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        // Scrolling down and past 100px - hide navbar
+        setIsVisible(false);
+        setScrollbg(false);
+      } else if (currentScrollY < lastScrollY) {
+        // Scrolling up - show navbar with background
+        setIsVisible(true);
+        setScrollbg(true);
+      }
+
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
 
   return (
-    <nav className="sticky top-0 z-50 w-full bg-background">
+    <nav
+      className={cn(
+        "sticky top-0 z-50 w-full transition-all duration-300 ease-in-out",
+        isVisible ? "translate-y-0" : "-translate-y-full",
+        scrollbg
+          ? "bg-background/50 backdrop-blur-sm border-b border-border/50"
+          : "bg-transparent"
+      )}
+    >
       <PageWrapper className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
@@ -81,7 +117,12 @@ export default function Navbar() {
               className="flex items-center space-x-2 cursor-pointer"
             >
               <div className="h-8 w-8 rounded-full bg-primary"></div>
-              <span className="text-xl font-bold text-foreground">
+              <span
+                className={cn(
+                  "text-xl font-bold transition-colors duration-300",
+                  scrollbg ? "text-foreground" : "text-white"
+                )}
+              >
                 Law Firm
               </span>
             </ScrollLink>
@@ -94,7 +135,10 @@ export default function Navbar() {
               smooth={true}
               duration={800}
               offset={-80}
-              className="text-sm font-medium text-foreground transition-colors hover:text-primary cursor-pointer"
+              className={cn(
+                "text-sm font-medium transition-colors hover:text-primary cursor-pointer",
+                scrollbg ? "text-foreground" : "text-white"
+              )}
             >
               Home
             </ScrollLink>
@@ -104,7 +148,10 @@ export default function Navbar() {
               smooth={true}
               duration={800}
               offset={-80}
-              className="text-sm font-medium text-foreground transition-colors hover:text-primary cursor-pointer"
+              className={cn(
+                "text-sm font-medium transition-colors hover:text-primary cursor-pointer",
+                scrollbg ? "text-foreground" : "text-white"
+              )}
             >
               About
             </ScrollLink>
@@ -112,7 +159,10 @@ export default function Navbar() {
             {/* Practice Areas Dropdown */}
             <div className="relative group">
               <button
-                className="flex items-center space-x-1 text-sm font-medium text-foreground transition-colors hover:text-primary focus:outline-none"
+                className={cn(
+                  "flex items-center space-x-1 text-sm font-medium transition-colors hover:text-primary focus:outline-none",
+                  scrollbg ? "text-foreground" : "text-white"
+                )}
                 onMouseEnter={() => setIsPracticeAreasOpen(true)}
                 onMouseLeave={() => setIsPracticeAreasOpen(false)}
               >
@@ -131,9 +181,9 @@ export default function Navbar() {
               >
                 <div className="p-4">
                   <div className="grid grid-cols-2 gap-4">
-                    {PRACTICE_AREAS.map((area) => (
+                    {PRACTICE_AREAS.map((area, index) => (
                       <Link
-                        key={area.href}
+                        key={index}
                         href={area.href}
                         className="block p-3 rounded-md hover:bg-accent transition-colors"
                       >
@@ -155,7 +205,10 @@ export default function Navbar() {
               smooth={true}
               duration={800}
               offset={-80}
-              className="text-sm font-medium text-foreground transition-colors hover:text-primary cursor-pointer"
+              className={cn(
+                "text-sm font-medium transition-colors hover:text-primary cursor-pointer",
+                scrollbg ? "text-foreground" : "text-white"
+              )}
             >
               Contact
             </ScrollLink>
@@ -167,7 +220,10 @@ export default function Navbar() {
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild>
                 <button
-                  className="inline-flex items-center justify-center rounded-md p-2 text-foreground hover:bg-accent hover:text-accent-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
+                  className={cn(
+                    "inline-flex items-center justify-center rounded-md p-2 hover:bg-accent hover:text-accent-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 transition-colors",
+                    scrollbg ? "text-foreground" : "text-white"
+                  )}
                   aria-expanded={isOpen}
                   aria-label="Toggle menu"
                 >
@@ -175,9 +231,9 @@ export default function Navbar() {
                 </button>
               </SheetTrigger>
               <SheetContent side="right" className="w-[300px] ">
-                <div className="flex flex-col h-ful w-full">
+                <div className="flex flex-col h-full w-full">
                   {/* Header */}
-                  <div className="flex items-center justify-between py-6 border-b border-border/50">
+                  <div className="flex items-center  justify-between p-6 border-b border-border/50">
                     <ScrollLink
                       to="home"
                       smooth={true}
@@ -187,7 +243,12 @@ export default function Navbar() {
                       onClick={() => setIsOpen(false)}
                     >
                       <div className="h-6 w-6 rounded-full bg-primary"></div>
-                      <span className="text-lg font-bold text-foreground">
+                      <span
+                        className={cn(
+                          "text-lg font-bold transition-colors duration-300",
+                          scrollbg ? "text-foreground" : "text-white"
+                        )}
+                      >
                         Law Firm
                       </span>
                     </ScrollLink>
@@ -200,7 +261,10 @@ export default function Navbar() {
                       smooth={true}
                       duration={800}
                       offset={-80}
-                      className="flex items-center px-2 py-2 text-base font-medium text-foreground hover:text-primary hover:bg-accent/50 rounded-lg transition-colors cursor-pointer"
+                      className={cn(
+                        "flex items-center px-2 py-2 text-base font-medium hover:text-primary hover:bg-accent/50 rounded-lg transition-colors cursor-pointer",
+                        scrollbg ? "text-foreground" : "text-white"
+                      )}
                       onClick={() => setIsOpen(false)}
                     >
                       <Home className="h-5 w-5 mr-3" />
@@ -212,7 +276,10 @@ export default function Navbar() {
                       smooth={true}
                       duration={800}
                       offset={-80}
-                      className="flex items-center px-2 py-2 text-base font-medium text-foreground hover:text-primary hover:bg-accent/50 rounded-lg transition-colors cursor-pointer"
+                      className={cn(
+                        "flex items-center px-2 py-2 text-base font-medium hover:text-primary hover:bg-accent/50 rounded-lg transition-colors cursor-pointer",
+                        scrollbg ? "text-foreground" : "text-white"
+                      )}
                       onClick={() => setIsOpen(false)}
                     >
                       <User className="h-5 w-5 mr-3" />
@@ -227,7 +294,10 @@ export default function Navbar() {
                             !isMobilePracticeAreasOpen
                           )
                         }
-                        className="flex items-center justify-between w-full px-2 py-2 text-base font-medium text-foreground hover:text-primary hover:bg-accent/50 rounded-lg transition-colors"
+                        className={cn(
+                          "flex items-center justify-between w-full px-2 py-2 text-base font-medium hover:text-primary hover:bg-accent/50 rounded-lg transition-colors",
+                          scrollbg ? "text-foreground" : "text-white"
+                        )}
                       >
                         <div className="flex items-center">
                           <Briefcase className="h-5 w-5 mr-3" />
@@ -278,7 +348,10 @@ export default function Navbar() {
                       smooth={true}
                       duration={800}
                       offset={-80}
-                      className="flex items-center px-2 py-2 text-base font-medium text-foreground hover:text-primary hover:bg-accent/50 rounded-lg transition-colors cursor-pointer"
+                      className={cn(
+                        "flex items-center px-2 py-2 text-base font-medium hover:text-primary hover:bg-accent/50 rounded-lg transition-colors cursor-pointer",
+                        scrollbg ? "text-foreground" : "text-white"
+                      )}
                       onClick={() => setIsOpen(false)}
                     >
                       <Phone className="h-5 w-5 mr-3" />

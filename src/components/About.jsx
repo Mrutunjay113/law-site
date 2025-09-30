@@ -8,14 +8,14 @@ export default function About() {
         <h1 className="text-center text-primary font-medium text-md">
           About us
         </h1>
-        <div className="mt-10 flex flex-row w-full gap-10">
+        <div className="mt-10 flex md:flex-row flex-col w-full gap-10">
           {" "}
           <Image
             src="/images/about-us.jpg"
             alt="About us"
             width={600}
             height={1000}
-            className="rounded-lg w-1/2"
+            className="rounded-lg md:w-1/2"
           />
           <div className="tracking-wide text-md">
             I'm [Your Full Name], a dedicated legal professional with over [X

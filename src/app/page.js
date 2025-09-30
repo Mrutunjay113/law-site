@@ -8,7 +8,7 @@ import WhyChooseUs from "@/components/why-choose-us";
 
 export default function Home() {
   return (
-    <div>
+    <>
       <Navbar />
       <section id="home">
         <Hero />
@@ -26,6 +26,6 @@ export default function Home() {
         <ContactUs />
       </section>
       <Footer />
-    </div>
+    </>
   );
 }

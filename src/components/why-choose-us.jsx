@@ -54,7 +54,7 @@ export default function WhyChooseUs() {
             alt="Why Choose Us"
             width={500}
             height={500}
-            className="rounded-lg w-1/2"
+            className="rounded-lg md:w-1/2"
           />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10 w-full ">
             {whyChooseUs.map((item, index) => (

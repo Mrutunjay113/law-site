@@ -58,33 +58,48 @@ const PRACTICE_AREAS = [
 
 export default function PracticeArea() {
   return (
-    <section className="py-16 bg-background">
-      <PageWrapper className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section
+      className="py-16 relative min-h-screen bg-background "
+      style={{
+        backgroundImage: "url('/images/bg-parallax.jpg')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
+      {/* Background Overlay */}
+      <div className="absolute inset-0 bg-black/90"></div>
+
+      <PageWrapper className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
         <div className="text-center mb-12">
           <h2 className="text-md font-semibold text-primary mb-4">
             Our Practice Areas
           </h2>
-          <p className="text-lg max-w-4xl mx-auto">
+          <p className="text-lg max-w-4xl mx-auto text-white/90">
             We provide comprehensive legal services across multiple practice
             areas, ensuring you receive expert counsel for your specific needs.
           </p>
         </div>
 
         {/* Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2  lg:grid-cols-4 gap-8">
           {PRACTICE_AREAS.map((item, index) => (
             <div
-              key={index}
-              className="flex flex-col min-h-[200px] gap-2 bg-background/95 border border-border rounded-lg p-4 hover:bg-background"
+              key={item.title}
+              className="flex flex-col group  backdrop-blur-xs  min-h-[200px] p-10  border border-dashed   border-white/20 rounded-lg   hover:shadow-lg transition-all duration-300"
             >
-              <div className="flex  items-center gap-2">
-                {item.icon && <item.icon className="h-5 w-5" />}
-                <h2 className="font-medium text-lg">{item.title}</h2>
+              <div className="flex flex-col items-center gap-4">
+                {item.icon && (
+                  <item.icon className="h-10 w-10 text-primary shadow-3xl" />
+                )}
+                <h2 className="font-medium text-2xl text-white/90 ">
+                  {item.title}
+                </h2>{" "}
+                <p className="text-md text-white/70 line-clamp-3">
+                  {item.description}
+                </p>
               </div>
-              <p className="text-md text-muted-foreground">
-                {item.description}
-              </p>
             </div>
           ))}
         </div>
