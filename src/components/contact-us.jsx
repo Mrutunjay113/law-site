@@ -123,7 +123,9 @@ export default function ContactUs() {
                   className="grid grid-cols-1  shadow-sm  gap-4 border border-white/20 rounded-lg p-4 bg-black/40 backdrop-blur-xl"
                 >
                   <div className=" grid grid-cols-1  items-center gap-4">
-                    {item?.icon && <item.icon className="h-5 w-5 text-white" />}
+                    {item?.icon && (
+                      <item.icon className="h-7 w-7 text-primary" />
+                    )}
                     <h3 className="text-lg font-semibold text-white">
                       {item.title}
                     </h3>{" "}
