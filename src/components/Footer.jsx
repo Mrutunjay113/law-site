@@ -56,7 +56,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="flex flex-col gap-2">
             <h3 className="text-lg font-semibold">About Us</h3>
-            <p className="text-muted-foreground">
+            <p className="text-sm sm:text-base text-muted-foreground">
               We are a team of experienced lawyers dedicated to providing the
               best legal services to our clients.
             </p>
@@ -73,8 +73,8 @@ export default function Footer() {
             </div>
           </div>
           <div>
-            <h3 className="text-lg font-semibold px-4">Quick Links</h3>
-            <div className="flex flex-col  items-start">
+            <h3 className="text-lg font-semibold">Quick Links</h3>
+            <div className="flex flex-col items-start gap-2">
               {/* show quick links and implement scroll link */}
               {/* <ScrollLink
                 to="home"

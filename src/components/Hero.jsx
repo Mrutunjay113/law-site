@@ -3,6 +3,7 @@ import { PhoneIcon } from "lucide-react";
 import Image from "next/image";
 import PageWrapper from "./PageWrapper";
 import Navbar from "./navbar";
+import { TypingAnimation } from "./ui/typing-animation";
 
 export default function Hero() {
   return (
@@ -17,23 +18,26 @@ export default function Hero() {
           backgroundAttachment: "fixed",
         }}
       >
-        <PageWrapper className="flex flex-row items-start justify-start px-0 mx-0 min-h-screen relative">
+        <PageWrapper className="flex flex-col lg:flex-row items-center justify-start px-4 mx-0 min-h-screen relative">
           <div className="absolute inset-0 z-0"> </div>
-          <div className=" min-h-screen bg  w-1/2 my-10">
-            <div className="flex flex-col md:pr-40 pt-20  items-start justify-start min-h-screen ">
+          <div className="w-full lg:w-1/2 my-10">
+            <div className="flex flex-col lg:pr-40 pt-20 items-center lg:items-start justify-start min-h-screen text-center lg:text-left">
               <span className="text-sm font-medium text-primary ">
                 Welcome to our law firm
               </span>
-              <h1 className="text-7xl font-bold tracking-wider text-white ">
+              <TypingAnimation
+                startOnView
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-wider text-white leading-tight"
+              >
                 Your Trusted Legal Partner for Peace of Mind
-              </h1>
-              <p className="text-md  font-normal mt-10 text-white/70 ">
+              </TypingAnimation>
+              <p className="text-sm sm:text-md font-normal mt-6 lg:mt-10 text-white/70 max-w-2xl">
                 Expert Legal Solutions in Civil, Criminal, and Corporate Law.
                 Committed to protecting your rights with integrity and
                 excellence.
               </p>
-              <div className="flex flex-row items-center justify-start mt-5">
-                <Button size={"lg"} className="text-md">
+              <div className="flex flex-row items-center justify-center lg:justify-start mt-5">
+                <Button size={"lg"} className="text-sm sm:text-md">
                   <PhoneIcon className="w-4 h-4 mr-1" />
                   Free Consultation
                 </Button>

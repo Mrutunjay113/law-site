@@ -30,13 +30,23 @@ const contact_info = [
   {
     title: "Office Address",
     icon: MapPin,
-    description: "123 Legal Street, Suite 100, City, State 12345",
+    description: (
+      <>
+        Address: ACBA 3rd floor, JMFC Court, Andheri(E) Mumbai-400069
+        <br /> Address: B303 Versova Neptune chs, 4th cross road lokhand wala,
+        Andheri (W), mum-53
+      </>
+    ),
   },
   {
     title: "Phone Number",
     icon: Phone,
-    description: "(555) 123-4567",
-    msg: "Available 24/7 for emergencies",
+    description: (
+      <>
+        +91 98200 00000 <br /> +91 98200 00000
+      </>
+    ),
+    msg: "Available between 9:00 AM - 9:00 PM",
   },
   {
     title: "Email Address",
@@ -47,7 +57,7 @@ const contact_info = [
   {
     title: "Office Hours",
     icon: Clock,
-    description: "Monday - Friday: 9:00 AM - 6:00 PM",
+    description: "Monday - Friday: 9:00 AM - 9:00 PM",
     msg: "Sunday: Closed",
   },
 ];
@@ -104,33 +114,35 @@ export default function ContactUs() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
           {/* Left Side - Contact Information */}
           <div className="space-y-8">
             <div className="text-center lg:text-left">
-              <h3 className="text-3xl font-bold text-white mb-4">
+              <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4">
                 Contact Information
               </h3>
-              <p className="text-white/70 text-lg leading-relaxed">
+              <p className="text-white/70 text-base sm:text-lg leading-relaxed">
                 We're here to help with all your legal needs. Reach out to us
                 through any of the following channels.
               </p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2  gap-8  ">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8">
               {contact_info.map((item, index) => (
                 <div
                   key={index}
-                  className="grid grid-cols-1  shadow-sm  gap-4 border border-white/20 rounded-lg p-4 bg-black/40 backdrop-blur-xl"
+                  className="grid grid-cols-1 shadow-sm gap-4 border border-white/20 rounded-lg p-4 bg-black/40 backdrop-blur-xl"
                 >
-                  <div className=" grid grid-cols-1  items-center gap-4">
+                  <div className="grid grid-cols-1 items-center gap-4">
                     {item?.icon && (
-                      <item.icon className="h-7 w-7 text-primary" />
+                      <item.icon className="h-6 w-6 sm:h-7 sm:w-7 text-primary" />
                     )}
-                    <h3 className="text-lg font-semibold text-white">
+                    <h3 className="text-base sm:text-lg font-semibold text-white">
                       {item.title}
-                    </h3>{" "}
-                    <p className="text-white/70 text-md ">{item.description}</p>
-                    <p className="text-white/70 text-sm leading-relaxed">
+                    </h3>
+                    <p className="text-white/70 text-sm sm:text-md">
+                      {item.description}
+                    </p>
+                    <p className="text-white/70 text-xs sm:text-sm leading-relaxed">
                       {item?.msg}
                     </p>
                   </div>
@@ -149,11 +161,11 @@ export default function ContactUs() {
                   possible.
                 </CardDescription>
               </CardHeader>
-              <CardContent className="md:p-8 pt-0">
+              <CardContent className="p-4 sm:p-6 lg:p-8">
                 <form
                   id="contact-form"
                   action={handleSubmit}
-                  className="space-y-6"
+                  className="space-y-4 sm:space-y-6"
                 >
                   {/* Message Display */}
                   {message.text && (
@@ -186,7 +198,7 @@ export default function ContactUs() {
                       type="text"
                       placeholder="Enter your full name"
                       required
-                      className="w-full  text-base "
+                      className="w-full text-sm sm:text-base"
                     />
                   </div>
 
@@ -201,7 +213,7 @@ export default function ContactUs() {
                       type="email"
                       placeholder="Enter your email address"
                       required
-                      className="w-full text-base "
+                      className="w-full text-sm sm:text-base"
                     />
                   </div>
 
@@ -215,7 +227,7 @@ export default function ContactUs() {
                       name="phone"
                       type="tel"
                       placeholder="Enter your phone number (optional)"
-                      className="w-full text-base"
+                      className="w-full text-sm sm:text-base"
                     />
                   </div>
 
@@ -229,6 +241,7 @@ export default function ContactUs() {
                       name="message"
                       placeholder="Tell us about your legal needs..."
                       required
+                      className="min-h-[100px] sm:min-h-[120px]"
                     />
                   </div>
 

@@ -48,32 +48,34 @@ export default function WhyChooseUs() {
         <h1 className="text-center text-primary font-medium text-md">
           Why Choose Us
         </h1>
-        <div className="flex flex-col md:flex-row w-full gap-10 mt-10">
+        <div className="flex flex-col lg:flex-row w-full gap-10 mt-10">
           <Image
             src="/images/why-choose-us.jpg"
             alt="Why Choose Us"
             width={500}
             height={500}
-            className="rounded-lg md:w-1/2"
+            className="rounded-lg w-full lg:w-1/2"
           />
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 w-full ">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-10 w-full">
             {whyChooseUs.map((item, index) => (
               <div
                 key={index}
                 className="flex flex-col gap-2 bg-background/95 border border-border rounded-lg p-4 hover:bg-background"
               >
                 <div className="flex flex-col gap-1 items-start">
-                  <div className=" font-semibold text-lg font-mono">
+                  <div className="font-semibold text-lg font-mono">
                     {index + 1}
                   </div>
-                  <h2 className="font-medium text-lg">{item.title}</h2>
+                  <h2 className="font-medium text-base lg:text-lg">
+                    {item.title}
+                  </h2>
                 </div>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-xs sm:text-sm text-muted-foreground">
                   {item.description}
                 </p>
               </div>
             ))}
-          </div>{" "}
+          </div>
         </div>
       </PageWrapper>
     </div>

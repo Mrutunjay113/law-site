@@ -83,20 +83,20 @@ export default function PracticeArea() {
         </div>
 
         {/* Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2  lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-8">
           {PRACTICE_AREAS.map((item, index) => (
             <div
               key={item.title}
-              className="flex flex-col group  backdrop-blur-xs  min-h-[200px] p-10  border border-dashed   border-white/20 rounded-lg   hover:shadow-lg transition-all duration-300"
+              className="flex flex-col group backdrop-blur-xs min-h-[200px] p-6 lg:p-10 border border-dashed border-white/20 rounded-lg hover:shadow-lg transition-all duration-300"
             >
               <div className="flex flex-col items-center gap-4">
                 {item.icon && (
-                  <item.icon className="h-10 w-10 text-primary shadow-3xl" />
+                  <item.icon className="h-8 w-8 sm:h-10 sm:w-10 text-primary shadow-3xl" />
                 )}
-                <h2 className="font-medium text-2xl text-white/90 ">
+                <h2 className="font-medium text-lg sm:text-xl lg:text-2xl text-white/90 text-center">
                   {item.title}
-                </h2>{" "}
-                <p className="text-md text-white/70 line-clamp-3">
+                </h2>
+                <p className="text-sm sm:text-md text-white/70 line-clamp-3 text-center">
                   {item.description}
                 </p>
               </div>
