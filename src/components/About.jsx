@@ -11,16 +11,15 @@ export default function About() {
           </h2>
         </header>
         <div className="mt-10 flex flex-col lg:flex-row w-full gap-10">
-          <figure>
-            <Image
-              src="/images/profile1.png"
-              alt="Dinesh Mani Tripathi - Experienced Legal Professional with 25+ years of experience in Civil, Criminal, Family, and Corporate Law"
-              width={600}
-              height={1000}
-              className="rounded-lg w-full lg:w-1/2"
-              priority={false}
-            />
-          </figure>
+          <Image
+            src="/images/profile1.png"
+            alt="Dinesh Mani Tripathi - Experienced Legal Professional with 25+ years of experience in Civil, Criminal, Family, and Corporate Law"
+            width={600}
+            height={1000}
+            className="rounded-lg w-full lg:w-1/2"
+            priority={false}
+          />
+
           <div className="tracking-wide text-sm sm:text-md leading-relaxed">
             <p>
               I'm <strong>Dinesh Mani Tripathi</strong>, a dedicated legal
