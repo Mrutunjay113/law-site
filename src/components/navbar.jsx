@@ -26,38 +26,34 @@ import PageWrapper from "./PageWrapper";
 
 const PRACTICE_AREAS = [
   {
-    title: "Personal Injury",
+    title: "Civil Law",
     href: "#practice-areas",
     description:
-      "Comprehensive legal representation for accident victims and their families.",
+      "Comprehensive legal support in partition suits, property disputes, recovery suits, and specific relief cases.",
   },
   {
-    title: "Criminal Defense",
+    title: "Criminal Law",
     href: "#practice-areas",
     description:
-      "Experienced defense attorneys protecting your rights and freedom.",
+      "Criminal proceedings, cheque bounce cases under NI Act, and related litigation with fair representation.",
   },
   {
     title: "Family Law",
     href: "#practice-areas",
     description:
-      "Compassionate guidance through divorce, custody, and family matters.",
+      "Divorce, maintenance, child custody, domestic violence, and other family matters with empathy and professionalism.",
   },
   {
-    title: "Business Law",
+    title: "High Court Original Side",
     href: "#practice-areas",
-    description: "Strategic legal counsel for businesses of all sizes.",
-  },
-  {
-    title: "Real Estate",
-    href: "#practice-areas",
-    description: "Expert assistance with property transactions and disputes.",
+    description:
+      "Will probate, succession certificates, letters of administration, and legal heirship proceedings.",
   },
   {
     title: "Estate Planning",
     href: "#practice-areas",
     description:
-      "Protect your legacy with comprehensive estate planning services.",
+      "Expert guidance in drafting wills, trusts, and succession planning to protect your assets and family's future.",
   },
 ];
 
@@ -185,7 +181,7 @@ export default function Navbar() {
                       <Link
                         key={index}
                         href={area.href}
-                        className="block p-3 rounded-md hover:bg-accent transition-colors"
+                        className="block p-3 rounded-md border border-border/90 hover:bg-accent transition-colors"
                       >
                         <div className="font-medium text-foreground mb-1">
                           {area.title}
@@ -323,7 +319,7 @@ export default function Navbar() {
                         <ScrollArea className="ml-4 space-y-1 bg-muted/30 rounded-lg p-2 h-[200px]">
                           {PRACTICE_AREAS.map((area) => (
                             <Link
-                              key={area.href}
+                              key={area.title}
                               href={area.href}
                               className="flex flex-col px-4 py-3 text-sm text-muted-foreground hover:text-primary hover:bg-accent/30 rounded-lg transition-colors"
                               onClick={() => {

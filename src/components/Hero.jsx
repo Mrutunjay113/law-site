@@ -11,7 +11,7 @@ export default function Hero() {
       <div
         className="flex flex-row items-start justify-center px-0 mx-0 min-h-screen relative -mt-16 pt-16"
         style={{
-          backgroundImage: "url('/images/home-bg.jpg')",
+          backgroundImage: "url('/images/bg-parallax3.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
@@ -44,15 +44,6 @@ export default function Hero() {
               </div>
             </div>
           </div>
-          {/* <div className="flex flex-col items-center justify-start min-h-screen w-1/2 pt-20 pr-20 ">
-          <Image
-            src="/images/hero-image.png"
-            alt="Hero Image"
-            width={1000}
-            height={1000}
-            className="w-full h-full object-cover "
-          />
-        </div> */}
         </PageWrapper>
       </div>
     </>

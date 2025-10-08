@@ -43,7 +43,7 @@ const contact_info = [
     icon: Phone,
     description: (
       <>
-        +91 98200 00000 <br /> +91 98200 00000
+        +91 9323124265 <br /> +91 8355896768
       </>
     ),
     msg: "Available between 9:00 AM - 9:00 PM",
@@ -51,7 +51,7 @@ const contact_info = [
   {
     title: "Email Address",
     icon: Mail,
-    description: "contact@lawfirm.com",
+    description: "dineshmtripathi485@gmail.com",
     msg: "We respond within 24 hours",
   },
   {
@@ -153,9 +153,9 @@ export default function ContactUs() {
 
           {/* Right Side - Contact Form */}
           <div>
-            <Card className="bg-background/40 backdrop-blur-xl shadow-none border">
+            <Card className="bg-black/40 backdrop-blur-xl shadow-none border border-black">
               <CardHeader className="">
-                <CardTitle className="">Send us a Message</CardTitle>
+                <CardTitle className="text-white">Send us a Message</CardTitle>
                 <CardDescription className="">
                   Fill out the form below and we'll get back to you as soon as
                   possible.
@@ -189,7 +189,10 @@ export default function ContactUs() {
 
                   {/* Full Name */}
                   <div className="space-y-2">
-                    <Label htmlFor="fullName" className="text-sm font-semibold">
+                    <Label
+                      htmlFor="fullName"
+                      className="text-sm font-semibold text-white"
+                    >
                       Full Name *
                     </Label>
                     <Input
@@ -204,7 +207,10 @@ export default function ContactUs() {
 
                   {/* Email */}
                   <div className="space-y-2">
-                    <Label htmlFor="email" className="text-sm font-semibold">
+                    <Label
+                      htmlFor="email"
+                      className="text-sm font-semibold text-white"
+                    >
                       Email Address *
                     </Label>
                     <Input
@@ -219,7 +225,10 @@ export default function ContactUs() {
 
                   {/* Phone */}
                   <div className="space-y-2">
-                    <Label htmlFor="phone" className="text-sm font-semibold">
+                    <Label
+                      htmlFor="phone"
+                      className="text-sm font-semibold text-white"
+                    >
                       Phone Number
                     </Label>
                     <Input
@@ -233,7 +242,10 @@ export default function ContactUs() {
 
                   {/* Message */}
                   <div className="space-y-2">
-                    <Label htmlFor="message" className="text-sm font-semibold">
+                    <Label
+                      htmlFor="message"
+                      className="text-sm font-semibold text-white    "
+                    >
                       Message *
                     </Label>
                     <Textarea

@@ -6,6 +6,8 @@ import {
   Home,
   FileText,
   ArrowRight,
+  Scale,
+  Gavel,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -19,39 +21,33 @@ import PageWrapper from "./PageWrapper";
 
 const PRACTICE_AREAS = [
   {
-    title: "Personal Injury",
+    title: "Civil Law",
     description:
-      "We fight for fair compensation in cases of accidents and negligence. \nFrom car crashes to workplace injuries, we handle it all. \nOur goal is to ease your recovery with trusted legal support. \nYou focus on healing — we’ll handle the rest.",
-    icon: Shield,
+      "We provide comprehensive legal support in all matters of civil law, including partition suits, property disputes, recovery suits, and specific relief cases. Our approach focuses on safeguarding your rights and achieving fair resolution—whether through negotiation, mediation, or litigation. We handle every case with precision and strategy to protect your legal and financial interests.",
+    icon: Scale,
   },
   {
-    title: "Criminal Defense",
+    title: "Criminal Law",
     description:
-      "Accused of a crime? We protect your rights with strong legal defense. \nEvery case is treated with urgency and precision. \nWe handle everything from minor offenses to serious charges. \nYour future matters — let us help defend it.",
-    icon: Shield,
+      "Our criminal law practice covers a wide range of offenses, including criminal proceedings, cheque bounce cases under the NI Act, and related litigation. We stand by our clients through every stage—from investigation to trial—ensuring fair representation, protection of rights, and pursuit of justice with diligence and integrity.",
+    icon: Gavel,
   },
   {
     title: "Family Law",
     description:
-      "We guide families through divorce, custody, and support disputes. \nOur approach is respectful, empathetic, and child-focused. \nLegal family matters require clarity and compassion. \nLet us help bring peace of mind to your situation.",
+      "Family disputes require sensitivity and a balanced approach. We handle cases related to divorce, maintenance, child custody, domestic violence, and other family matters with empathy and professionalism. Our goal is to help clients navigate emotionally charged situations with clarity, respect, and strong legal guidance.",
     icon: Users,
   },
   {
-    title: "Business Law",
+    title: "High Court Original Side",
     description:
-      "From startups to corporations, we offer strategic legal advice. \nWe assist with contracts, compliance, and risk management. \nFocus on growth while we handle your legal landscape. \nProtect your business with experienced counsel.",
+      "We assist clients in complex matters before the High Court's Original Side, including will probate, succession certificates, letters of administration, and legal heirship proceedings. Our team ensures that all procedural and documentary requirements are meticulously handled to provide smooth and efficient resolution.",
     icon: Building2,
-  },
-  {
-    title: "Real Estate",
-    description:
-      "We help clients navigate property sales, leases, and disputes. \nAvoid costly mistakes with clear legal guidance. \nWhether buying, selling, or litigating — we’re with you. \nSecure your real estate deals with confidence.",
-    icon: Home,
   },
   {
     title: "Estate Planning",
     description:
-      "Prepare for the future with wills, trusts, and probate support. \nWe help you protect your assets and loved ones. \nCustomized estate plans that reflect your wishes. \nLeave a legacy that truly matters — we’ll guide you.",
+      "Proper estate planning is essential to protect your assets and secure your family's future. We offer expert guidance in drafting wills, trusts, and succession planning, ensuring your estate is managed and distributed according to your wishes. Our focus is on minimizing disputes and providing peace of mind through clear, legally sound documentation.",
     icon: FileText,
   },
 ];
@@ -83,11 +79,11 @@ export default function PracticeArea() {
         </div>
 
         {/* Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6 lg:gap-8">
           {PRACTICE_AREAS.map((item, index) => (
             <div
               key={item.title}
-              className="flex flex-col group backdrop-blur-xs min-h-[200px] p-6 lg:p-10 border border-dashed border-white/20 rounded-lg hover:shadow-lg transition-all duration-300"
+              className="flex flex-col group backdrop-blur-xs min-h-[200px] p-6 lg:p-10 border border-dashed border-white/30 rounded-lg hover:shadow-lg transition-all duration-300"
             >
               <div className="flex flex-col items-center gap-4">
                 {item.icon && (
@@ -96,7 +92,7 @@ export default function PracticeArea() {
                 <h2 className="font-medium text-lg sm:text-xl lg:text-2xl text-white/90 text-center">
                   {item.title}
                 </h2>
-                <p className="text-sm sm:text-md text-white/70 line-clamp-3 text-center">
+                <p className="text-sm sm:text-md text-white/70 text-center">
                   {item.description}
                 </p>
               </div>
