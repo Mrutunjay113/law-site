@@ -43,41 +43,56 @@ const whyChooseUs = [
 
 export default function WhyChooseUs() {
   return (
-    <div className="bg-background h-fit my-10">
+    <section
+      className="bg-background h-fit my-10"
+      aria-label="Why Choose Our Legal Services"
+    >
       <PageWrapper className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 className="text-center text-primary font-medium text-md">
-          Why Choose Us
-        </h1>
+        <header>
+          <h2 className="text-center text-primary font-medium text-md">
+            Why Choose Us
+          </h2>
+        </header>
         <div className="flex flex-col lg:flex-row w-full gap-10 mt-10">
-          <Image
-            src="/images/why-choose-us.jpg"
-            alt="Why Choose Us"
-            width={500}
-            height={500}
-            className="rounded-lg w-full lg:w-1/2"
-          />
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-10 w-full">
+          <figure>
+            <Image
+              src="/images/why-choose-us.jpg"
+              alt="Professional legal team providing expert legal services with integrity and excellence"
+              width={500}
+              height={500}
+              className="rounded-lg w-full lg:w-1/2"
+              priority={false}
+            />
+          </figure>
+          <div
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-10 w-full"
+            role="list"
+          >
             {whyChooseUs.map((item, index) => (
-              <div
+              <article
                 key={index}
                 className="flex flex-col gap-2 bg-background/95 border border-border rounded-lg p-4 hover:bg-background"
+                role="listitem"
               >
                 <div className="flex flex-col gap-1 items-start">
-                  <div className="font-semibold text-lg font-mono">
+                  <div
+                    className="font-semibold text-lg font-mono"
+                    aria-label={`Reason ${index + 1}`}
+                  >
                     {index + 1}
                   </div>
-                  <h2 className="font-medium text-base lg:text-lg">
+                  <h3 className="font-medium text-base lg:text-lg">
                     {item.title}
-                  </h2>
+                  </h3>
                 </div>
                 <p className="text-xs sm:text-sm text-muted-foreground">
                   {item.description}
                 </p>
-              </div>
+              </article>
             ))}
           </div>
         </div>
       </PageWrapper>
-    </div>
+    </section>
   );
 }

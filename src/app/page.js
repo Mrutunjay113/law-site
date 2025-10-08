@@ -10,21 +10,23 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <section id="home">
-        <Hero />
-      </section>
-      <section id="about">
-        <About />
-      </section>
-      <section id="practice-areas">
-        <PracticeArea />
-      </section>
-      <section id="why-choose-us">
-        <WhyChooseUs />
-      </section>
-      <section id="contact">
-        <ContactUs />
-      </section>
+      <main>
+        <section id="home" aria-label="Hero Section">
+          <Hero />
+        </section>
+        <section id="about" aria-label="About Us">
+          <About />
+        </section>
+        <section id="practice-areas" aria-label="Practice Areas">
+          <PracticeArea />
+        </section>
+        <section id="why-choose-us" aria-label="Why Choose Us">
+          <WhyChooseUs />
+        </section>
+        <section id="contact" aria-label="Contact Us">
+          <ContactUs />
+        </section>
+      </main>
       <Footer />
     </>
   );

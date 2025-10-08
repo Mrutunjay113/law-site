@@ -92,19 +92,19 @@ export default function ContactUs() {
 
   return (
     <section
-      className="py-16 relative "
+      className="py-16 relative"
       style={{
         backgroundImage: "url('/images/contact-us-bg.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
       }}
+      aria-label="Contact Information and Form"
     >
-      {" "}
-      <div className="absolute inset-0 bg-black/80 "></div>
+      <div className="absolute inset-0 bg-black/80" aria-hidden="true"></div>
       <PageWrapper className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
-        <div className="text-center mb-16">
+        <header className="text-center mb-16">
           <h2 className="text-md font-semibold text-primary mb-4">
             Get In Touch
           </h2>
@@ -112,11 +112,11 @@ export default function ContactUs() {
             Ready to discuss your legal needs? Contact us today for a
             consultation.
           </p>
-        </div>
+        </header>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
           {/* Left Side - Contact Information */}
-          <div className="space-y-8">
+          <address className="space-y-8 not-italic">
             <div className="text-center lg:text-left">
               <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4">
                 Contact Information
@@ -134,11 +134,14 @@ export default function ContactUs() {
                 >
                   <div className="grid grid-cols-1 items-center gap-4">
                     {item?.icon && (
-                      <item.icon className="h-6 w-6 sm:h-7 sm:w-7 text-primary" />
+                      <item.icon
+                        className="h-6 w-6 sm:h-7 sm:w-7 text-primary"
+                        aria-hidden="true"
+                      />
                     )}
-                    <h3 className="text-base sm:text-lg font-semibold text-white">
+                    <h4 className="text-base sm:text-lg font-semibold text-white">
                       {item.title}
-                    </h3>
+                    </h4>
                     <p className="text-white/70 text-sm sm:text-md">
                       {item.description}
                     </p>
@@ -149,7 +152,7 @@ export default function ContactUs() {
                 </div>
               ))}
             </div>
-          </div>
+          </address>
 
           {/* Right Side - Contact Form */}
           <div>
