@@ -54,16 +54,15 @@ export default function WhyChooseUs() {
           </h2>
         </header>
         <div className="flex flex-col lg:flex-row w-full gap-10 mt-10">
-          <figure>
-            <Image
-              src="/images/why-choose-us.jpg"
-              alt="Professional legal team providing expert legal services with integrity and excellence"
-              width={500}
-              height={500}
-              className="rounded-lg w-full lg:w-1/2"
-              priority={false}
-            />
-          </figure>
+          <Image
+            src="/images/why-choose-us.jpg"
+            alt="Professional legal team providing expert legal services with integrity and excellence"
+            width={500}
+            height={500}
+            className="rounded-lg w-full lg:w-1/2"
+            priority={false}
+          />
+
           <div
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-10 w-full"
             role="list"
