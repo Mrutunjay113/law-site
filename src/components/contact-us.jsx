@@ -93,6 +93,7 @@ export default function ContactUs() {
   return (
     <section
       className="py-16 relative"
+      id="contact"
       style={{
         backgroundImage: "url('/images/contact-us-bg.jpg')",
         backgroundSize: "cover",

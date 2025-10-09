@@ -10,7 +10,7 @@ export default function Hero() {
     <header
       className="flex flex-row items-start justify-center px-0 mx-0 min-h-screen relative -mt-16 pt-16"
       style={{
-        backgroundImage: "url('/images/bg-parallax3.jpg')",
+        backgroundImage: "url('/images/bg-parallax3.webp')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
@@ -41,7 +41,7 @@ export default function Hero() {
                 aria-label="Schedule a free consultation"
               >
                 <PhoneIcon className="w-4 h-4 mr-1" aria-hidden="true" />
-                Free Consultation
+                Contact Us
               </Button>
             </div>
           </div>
