@@ -23,6 +23,7 @@ import { ScrollArea } from "./ui/scroll-area";
 import { ThemeToggle } from "./theme-toggle";
 import { Link as ScrollLink } from "react-scroll";
 import PageWrapper from "./PageWrapper";
+import Image from "next/image";
 
 const PRACTICE_AREAS = [
   {
@@ -112,7 +113,15 @@ export default function Navbar() {
               offset={-80}
               className="flex items-center space-x-2 cursor-pointer"
             >
-              <div className="h-8 w-8 rounded-full bg-primary"></div>
+              <div className="h-10 w-10 rounded-full">
+                <Image
+                  src="/images/logo.png"
+                  alt="Logo"
+                  width={100}
+                  height={100}
+                  className="rounded-full object-contain"
+                />
+              </div>
               <span
                 className={cn(
                   "text-xl font-bold transition-colors duration-300",

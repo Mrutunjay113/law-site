@@ -20,16 +20,16 @@ export default function About() {
             priority={false}
           />
 
-          <div className="tracking-wide text-sm sm:text-md leading-relaxed">
+          <div className="tracking-wide text-base sm:text-md leading-relaxed">
             <p>
               I'm <strong>Dinesh Mani Tripathi</strong>, a dedicated legal
-              professional with over 25 years of experience providing
-              personalized legal services in areas such as Civil Law, Criminal
-              Defense, Family Law, and Corporate Law. My mission is to deliver
-              practical, results-driven legal advice with honesty, empathy, and
-              integrity.
+              professional with over <strong>25 years</strong> of experience
+              providing personalized legal services in areas such as Civil Law,
+              Criminal Defense, Family Law, and Corporate Law. My mission is to
+              deliver practical, results-driven legal advice with honesty,
+              empathy, and integrity.
             </p>
-            <p>
+            <p className="mt-4">
               I understand that legal matters can be stressful — my goal is to
               simplify the process and advocate for your rights every step of
               the way. Whether you're facing a legal dispute, need contractual
