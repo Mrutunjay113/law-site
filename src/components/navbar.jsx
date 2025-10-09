@@ -111,15 +111,15 @@ export default function Navbar() {
               smooth={true}
               duration={800}
               offset={-80}
-              className="flex items-center space-x-2 cursor-pointer"
+              className="flex items-center gap-2 cursor-pointer"
             >
-              <div className="h-10 w-10 rounded-full">
+              <div className="h-10 w-10 rounded-full bg-primary">
                 <Image
-                  src="/images/logo.png"
+                  src="/images/log_bg.png"
                   alt="Logo"
                   width={100}
                   height={100}
-                  className="rounded-full object-contain"
+                  className=" mt-0.5"
                 />
               </div>
               <span
