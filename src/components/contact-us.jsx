@@ -33,8 +33,6 @@ const contact_info = [
     description: (
       <>
         Address: ACBA 3rd floor, JMFC Court, Andheri(E) Mumbai-400069
-        <br /> Address: B303 Versova Neptune chs, 4th cross road lokhand wala,
-        Andheri (W), mum-53
       </>
     ),
   },
