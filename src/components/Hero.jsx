@@ -31,7 +31,7 @@ export default function Hero() {
               </TypingAnimation>
             </h1>
             <p className="text-sm sm:text-md font-normal mt-6 lg:mt-10 text-white/70 max-w-2xl">
-              Expert Legal Solutions in Civil, Criminal, and Corporate Law.
+              Expert Legal Solutions in Civil, Criminal.
               Committed to protecting your rights with integrity and excellence.
             </p>
             <div className="flex flex-row items-center justify-center lg:justify-start mt-5">
