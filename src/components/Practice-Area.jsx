@@ -74,7 +74,7 @@ export default function PracticeArea() {
             Our Practice Areas
           </h2>
           <p className="text-lg max-w-4xl mx-auto text-white/90">
-            We provide comprehensive legal services across multiple practice
+            We discharge comprehensive legal acts across multiple practice
             areas, ensuring you receive expert counsel for your specific needs.
           </p>
         </header>
