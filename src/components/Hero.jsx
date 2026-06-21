@@ -1,14 +1,15 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import { PhoneIcon } from "lucide-react";
-import Image from "next/image";
+import { Link as ScrollLink } from "react-scroll";
 import PageWrapper from "./PageWrapper";
-import Navbar from "./navbar";
 import { TypingAnimation } from "./ui/typing-animation";
 
 export default function Hero() {
   return (
     <header
-      className="flex flex-row items-start justify-center px-0 mx-0 min-h-screen relative -mt-16 pt-16"
+      className="flex flex-row items-start justify-center px-0 mx-0 h-[calc(100vh-80px)] relative -mt-16 pt-16"
       style={{
         backgroundImage: "url('/images/bg-parallax3.webp')",
         backgroundSize: "cover",
@@ -34,15 +35,24 @@ export default function Hero() {
               Committed to protecting your rights with integrity and excellence.
             </p>
             <div className="flex flex-row items-center justify-center lg:justify-start mt-5">
-              <Button
-                size={"lg"}
-                className="text-sm sm:text-md"
-                role="button"
-                aria-label="Schedule a free consultation"
+              <ScrollLink
+                to="contact"
+                smooth={true}
+                duration={800}
+                offset={-80}
+                className="cursor-pointer"
+                aria-label="Scroll to contact section"
               >
-                <PhoneIcon className="w-4 h-4 mr-1" aria-hidden="true" />
-                Contact Us
-              </Button>
+                <Button
+                  size={"lg"}
+                  className="text-sm sm:text-md"
+                  role="button"
+                  aria-label="Schedule a free consultation"
+                >
+                  <PhoneIcon className="w-4 h-4 mr-1" aria-hidden="true" />
+                  Contact Us
+                </Button>
+              </ScrollLink>
             </div>
           </div>
         </div>

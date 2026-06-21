@@ -23,11 +23,11 @@ export default function About() {
           <div className="tracking-wide text-base sm:text-md leading-relaxed">
             <p>
               I'm <strong>Dinesh Mani Tripathi</strong>, a dedicated legal
-              professional with over <strong>25 years</strong> of experience
-              providing personalized legal services in areas such as Civil Law,
-              Criminal Defense, Family Law, and Corporate Law. My mission is to
-              deliver practical, results-driven legal advice with honesty,
-              empathy, and integrity.
+              professional with approximately <strong>20 years</strong> of
+              experience providing personalized legal services in areas such as
+              Civil Law, Criminal Defense, Family Law. My mission is to deliver
+              practical, results-driven legal advice with honesty, empathy, and
+              integrity.
             </p>
             <p className="mt-4">
               I understand that legal matters can be stressful — my goal is to
